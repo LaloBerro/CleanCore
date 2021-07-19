@@ -1,5 +1,5 @@
 {
-    "name": "CleanCore.Editor.CustomComponents",
+    "name": "CleanCore.Editor.CustomComponents.Inspector",
     "references": [
         "GUID:4ceeaacd8069bb745942e6b347f4a11a",
         "GUID:1f1e6d46845277f4c9ea8c439ac11e32"
