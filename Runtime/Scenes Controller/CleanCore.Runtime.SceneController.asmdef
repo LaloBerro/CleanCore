@@ -1,8 +1,8 @@
 {
     "name": "CleanCore.Runtime.SceneController",
     "references": [
-        "GUID:75391da707f52dd478176bedc4b5a894",
-        "GUID:9752d0efee3496147bdd574aaff0cf19"
+        "GUID:9752d0efee3496147bdd574aaff0cf19",
+        "GUID:dc093f059d2fabe47b6cd6d5acb31d18"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
