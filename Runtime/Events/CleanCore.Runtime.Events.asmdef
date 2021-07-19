@@ -1,3 +1,15 @@
-﻿{
-	"name": "CleanCore.Runtime.Events"
+{
+    "name": "CleanCore.Runtime.Events",
+    "references": [
+        "GUID:75391da707f52dd478176bedc4b5a894"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
