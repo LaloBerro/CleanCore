@@ -1,6 +1,8 @@
 {
     "name": "CleanCore.Editor",
-    "references": [],
+    "references": [
+        "GUID:2b6b1e5c2f460924db10f3c0979e4c56"
+    ],
     "includePlatforms": [
         "Editor"
     ],
