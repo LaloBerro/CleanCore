@@ -1,0 +1,17 @@
+{
+    "name": "CleanCore.Runtime.CustomEditor.FactoryMethod",
+    "references": [
+        "GUID:4ceeaacd8069bb745942e6b347f4a11a"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
