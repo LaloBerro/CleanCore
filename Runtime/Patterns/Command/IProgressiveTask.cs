@@ -1,4 +1,4 @@
-﻿namespace CleanCore.Tasks
+﻿namespace CleanCore.Patterns.Command
 {
     public interface IProgressiveTask
     {

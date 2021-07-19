@@ -1,0 +1,15 @@
+{
+    "name": "CommonCore.Processor",
+    "references": [
+        "GUID:9752d0efee3496147bdd574aaff0cf19"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

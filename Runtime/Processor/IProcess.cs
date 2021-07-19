@@ -1,4 +1,4 @@
-﻿using CleanCore.Tasks;
+﻿using CleanCore.Patterns.Command;
 
 namespace CleanCore.Processor
 {

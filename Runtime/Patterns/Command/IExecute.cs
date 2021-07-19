@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CleanCore.Patterns
+namespace CleanCore.Patterns.Command
 {
 	public interface IExecute 
 	{

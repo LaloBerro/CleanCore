@@ -1,9 +1,9 @@
 {
-    "name": "CommonCore.Processor",
-    "references": [
-        "GUID:b30c17d2afea64d4cb9d7ffaaac1a886"
+    "name": "CleanCore.Editor.CustomComponents",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
     ],
-    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
