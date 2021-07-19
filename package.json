@@ -1,6 +1,6 @@
 {
   "name": "com.lalo.cleancore",
-  "version": "1.2.3",
+  "version": "0.0.1",
   "displayName": "Clean Core",
   "description": "This is an example package",
   "unity": "2019.1",
@@ -17,5 +17,7 @@
     "name": "Unity",
     "email": "unity@example.com",
     "url": "https://www.unity3d.com"
-  }
+  },
+  "type": "tool",
+  "hideInEditor": false
 }
