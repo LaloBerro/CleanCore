@@ -15,5 +15,10 @@ namespace CleanCore.Extensions
             color.a = alpha;
             return color;
         }
+
+        public static string ToHex(this Color color)
+        {
+            return string.Format("#{0:X2}{1:X2}{2:X2}", color.r.ToByte(), color.g.ToByte(), color.b.ToByte());
+        }
     }
 }
