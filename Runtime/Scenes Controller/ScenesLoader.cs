@@ -1,25 +1,25 @@
-﻿using CleanCore.Patterns;
+﻿using System;
 using CleanCore.Patterns.Command;
-using System.Collections;
+using CleanCore.Patterns;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 namespace CleanCore.Scenes
 {
-    public class ScenesController : Singleton<ScenesController>, IProgressiveTask
+    [Serializable]
+    public class ScenesLoader : Singleton<ScenesLoader>, IProgressiveTask
     {
         #region Vars
 
         [Header("Header")]
-        [SerializeField] private  SceneData loadingScreenData;
+        [SerializeField] private SceneDataSO loadingScreenData;
+        [SerializeField] private SceneDataSO firstOpenSceneData;
 
         [Header("Debug")]
-        [SerializeField] private int _progress;    
-
+        [SerializeField] private int _progress;
         [SerializeField] private SceneData _currentSceneData;
-        [SerializeField] private SceneData _principalScene;
-
         [SerializeField] private List<SceneData> _openScenes = new List<SceneData>();
         private List<AsyncOperation> _operations;
 
@@ -29,84 +29,68 @@ namespace CleanCore.Scenes
 
         #region Methods
 
-        #region Build-In
+        #region Init Methods
 
         private void Awake()
         {
-            PassTroughScenes();
             InitVariables();
+
+            _openScenes.Add(firstOpenSceneData.SceneData);
         }
 
-        #endregion
-
-        #region Init Vars
-
-        private void InitVariables()
+                private void InitVariables()
         {
             _operations = new List<AsyncOperation>();
         }
 
         #endregion
 
-        #region Custom
-
-        #region Public
-
-        /// <summary>
-        /// Get the current scene data
-        /// </summary>
-        /// <returns></returns>
-        public SceneData GetCurrentScene()
-        {
-            return _currentSceneData;
-        }
-
-        #endregion
-
-        #region Load Scene
+        #region Load Scenes
 
         /// <summary>
         /// Set and run the SceneLoaderData
         /// </summary>
         /// <param name="sceneData"></param>
-        public void LoadScene(SceneData sceneData)
+        public async void LoadScene(SceneDataSO sceneData)
         {
             _operations.Clear();
 
-            _currentSceneData = sceneData;
+            _currentSceneData = sceneData.SceneData;
 
-            StartCoroutine(LoadProcess());
+            await LoadProcessAsync();
         }
-        
-        private IEnumerator LoadProcess()
+
+        private async Task LoadProcessAsync()
         {
-            yield return StartCoroutine(LoadLoadingScreen());
+
+            await LoadLoadingScreenAsync();
 
             RemoveOpenScenes();
 
             OpenScenes();
 
-            yield return StartCoroutine(WaitToAllOperationsDone());
+            await WaitToAllOperationsDoneAsync();
 
             UnloadLoadingScreen();
-
-            SetPrincipalScene();
 
             OnAllOperationsDone();
         }
 
-        private IEnumerator LoadLoadingScreen()
+        private async Task LoadLoadingScreenAsync()
         {
-            if (_currentSceneData.useLoadingSreen == false) yield return null;
+            if (_currentSceneData.useLoadingScreen == false) return;
 
-            AsyncOperation loadLoadingOperation = SceneManager.LoadSceneAsync(loadingScreenData.nameScene, LoadSceneMode.Additive);
+            AsyncOperation loadLoadingOperation = SceneManager.LoadSceneAsync(loadingScreenData.SceneData.nameScene, LoadSceneMode.Additive);
 
-            yield return new WaitUntil(() => loadLoadingOperation.isDone);
+            while (!loadLoadingOperation.isDone)
+            {
+                await Task.Delay(1);
+            }
         }
 
         #region Remove Scene
 
-        private void RemoveOpenScenes() 
+        private void RemoveOpenScenes()
         {
             for (int i = 0; i < _openScenes.Count; i++)
             {
@@ -139,8 +123,8 @@ namespace CleanCore.Scenes
         private void OpenScenes()
         {
             SceneData[] scenesToLoad = _currentSceneData.GetAllScenesToOpen();
-            
-            foreach(var sceneData in scenesToLoad)
+
+            foreach (var sceneData in scenesToLoad)
             {
                 if (IsThisSceneOpen(sceneData)) continue;
 
@@ -160,13 +144,11 @@ namespace CleanCore.Scenes
             _operations.Add(operation);
 
             _openScenes.Add(sceneData);
-
-            if (sceneData.isPrincipal) _principalScene = sceneData;
         }
 
         #endregion
 
-        private IEnumerator WaitToAllOperationsDone()
+        private async Task WaitToAllOperationsDoneAsync()
         {
             int operationsCount = _operations.Count;
             float totalProgress = 0;
@@ -178,28 +160,20 @@ namespace CleanCore.Scenes
 
                     _progress = Mathf.RoundToInt(totalProgress / operationsCount);
 
-                    yield return null;
+                    await Task.Delay(1);
                 }
         }
 
         private void UnloadLoadingScreen()
         {
-            if (_currentSceneData.useLoadingSreen)
-                SceneManager.UnloadSceneAsync(loadingScreenData.nameScene);
-        }
-
-        private void SetPrincipalScene()
-        {
-            if (_principalScene)
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(_principalScene.nameScene));
+            if (_currentSceneData.useLoadingScreen)
+                SceneManager.UnloadSceneAsync(loadingScreenData.SceneData.nameScene);
         }
 
         private void OnAllOperationsDone()
         {
             Debug.Log("All scene are loaded");
         }
-
-        #endregion
 
         #endregion
 
