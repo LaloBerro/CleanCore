@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CleanCore.StaticControls
+namespace CleanCore.StaticSettings
 {
 	public static class CursorController
 	{
