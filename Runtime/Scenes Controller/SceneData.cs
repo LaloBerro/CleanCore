@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Security.Cryptography;
+using System.Net;
+using System.Runtime.InteropServices;
+using UnityEngine;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -6,15 +9,17 @@ using UnityEditor;
 
 namespace CleanCore.Scenes
 {
-    [CreateAssetMenu(fileName = "SceneData", menuName = "Scenes/SceneData")]
-    public class SceneData : ScriptableObject
+
+    [System.Serializable]
+    public class SceneData
     {
+
 #if UNITY_EDITOR
         public SceneAsset sceneAsset;
 #endif
 
         [Header("Config")]
-        public bool useLoadingSreen = true;
+        public bool useLoadingScreen = true;
         public bool isLockedScene;
         public bool removeLockedScenes;
         public bool isPrincipal;
