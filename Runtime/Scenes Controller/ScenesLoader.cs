@@ -38,7 +38,7 @@ namespace CleanCore.Scenes
             _openScenes.Add(firstOpenSceneData.SceneData);
         }
 
-                private void InitVariables()
+        private void InitVariables()
         {
             _operations = new List<AsyncOperation>();
         }
@@ -62,7 +62,6 @@ namespace CleanCore.Scenes
 
         private async Task LoadProcessAsync()
         {
-
             await LoadLoadingScreenAsync();
 
             RemoveOpenScenes();
