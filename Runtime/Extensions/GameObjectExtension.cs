@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace CleanCore.Extensions
 {
@@ -58,5 +60,28 @@ namespace CleanCore.Extensions
             }
             return copy as T;
         }
+
+        public static T GetInterface<T>(this GameObject selfObj) where T : class
+        {
+            if (!typeof(T).IsInterface)
+            {
+                Debug.LogError(typeof(T).ToString() + ": is not an actual interface!");
+                return null;
+            }
+
+            return selfObj.GetComponents<Component>().OfType<T>().FirstOrDefault();
+        }
+
+        public static IEnumerable<T> GetInterfaces<T>(this GameObject inObj) where T : class
+        {
+            if (!typeof(T).IsInterface)
+            {
+                Debug.LogError(typeof(T).ToString() + ": is not an actual interface!");
+                return Enumerable.Empty<T>();
+            }
+
+            return inObj.GetComponents<Component>().OfType<T>();
+        }
+
     }
 }
