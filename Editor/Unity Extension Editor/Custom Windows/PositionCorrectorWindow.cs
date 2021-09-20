@@ -12,7 +12,7 @@ namespace CleanCore.EditorExtensions.Windows
 
         private bool _affectRotation;
 
-        [MenuItem("Custom Editor/Windows/Position Corrector")]
+        [MenuItem("Custom Editor/Position Corrector")]
         private static void ShowWindow()
         {
             EditorWindow.GetWindow(typeof(PositionCorrectorWindow), false, "Position Corrector");

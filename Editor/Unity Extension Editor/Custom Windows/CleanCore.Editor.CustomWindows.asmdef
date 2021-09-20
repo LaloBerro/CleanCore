@@ -1,6 +1,8 @@
 {
     "name": "CleanCore.Editor.CustomWindows",
-    "references": [],
+    "references": [
+        "GUID:ebe80b196d359434890baf4512d14a48"
+    ],
     "includePlatforms": [
         "Editor"
     ],

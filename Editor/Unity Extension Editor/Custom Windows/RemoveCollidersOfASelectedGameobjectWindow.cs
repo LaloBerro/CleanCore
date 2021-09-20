@@ -7,7 +7,7 @@ namespace BaseProject.EditorExtensions.Windows
     {
         private bool _showBtn = true;
 
-        [MenuItem("Custom Editor/Windows/Remove Collider")]
+        [MenuItem("Custom Editor/Remove Collider")]
         public static void ShowWindow()
         {
             EditorWindow.GetWindow(typeof(RemoveCollidersOfASelectedGameobjectWindow), false, "Remove Collider");

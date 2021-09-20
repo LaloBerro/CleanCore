@@ -11,7 +11,7 @@ namespace CleanCore.EditorExtensions.Windows
         private string _folderName;
         private string _sceneName;
 
-        [MenuItem("Custom Editor/Windows/Clean Code Creator")]
+        [MenuItem("Custom Editor/Clean Code Creator")]
         private static void ShowWindow()
         {
             GetWindow(typeof(CleanCodeCreator), false, "Clean Code Creator");

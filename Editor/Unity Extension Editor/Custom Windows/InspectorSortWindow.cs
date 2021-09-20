@@ -35,7 +35,7 @@ namespace CleanCore.EditorExtensions.Windows
 
         #endregion
 
-        [MenuItem("Custom Editor/Windows/Sort Inspector")]
+        [MenuItem("Custom Editor/Sort Inspector")]
         private static void ShowWindow()
         {
             EditorWindow.GetWindow(typeof(InspectorSortWindow), false, "Sort Inspector");

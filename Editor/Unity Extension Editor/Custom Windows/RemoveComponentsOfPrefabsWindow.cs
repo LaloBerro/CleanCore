@@ -9,7 +9,7 @@ namespace CleanCore.EditorExtensions.Windows
     {
         private MonoScript _targetComponent;
 
-        [MenuItem("Custom Editor/Windows/Remove Component on prefabs and apply")]
+        [MenuItem("Custom Editor/Remove Component on prefabs and apply")]
         public static void ShowWindow()
         {
             EditorWindow.GetWindow(typeof(RemoveComponentsOfPrefabsWindow), false, "Remove Component on prefabs");

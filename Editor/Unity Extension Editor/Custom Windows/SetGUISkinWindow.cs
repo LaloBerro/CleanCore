@@ -7,7 +7,7 @@ namespace CleanCore.EditorExtensions.Windows
 	{
         private GUISkin _guiSkin;
 
-        [MenuItem("Custom Editor/Windows/Editor/Change GUI Skin")]
+        [MenuItem("Custom Editor/Editor/Change GUI Skin")]
         public static void ShowWindow()
         {
             GetWindowWithRect(typeof(SetGUISkinWindow), new Rect(Vector2.zero, new Vector2(200, 50)), false, "GUI Skin Changer");

@@ -11,7 +11,7 @@ namespace CleanCore.EditorExtensions.Windows
 
         private string _sceneToSearch = "";
 
-        [MenuItem("Custom Editor/Windows/Scene Selector List")]
+        [MenuItem("Custom Editor/Scene Selector List")]
         private static void ShowWindow()
         {
             EditorWindow.GetWindow(typeof(SceneSelectorListWindow), false, "Scene Selector");
