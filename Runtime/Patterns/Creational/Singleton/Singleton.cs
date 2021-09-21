@@ -31,7 +31,7 @@ namespace CleanCore.Patterns
             if (IsThisTheInstance())
                 DontDestroyOnLoad(gameObject);                   
             else
-                Destroy(this);
+                Destroy(gameObject);
         }
 
         protected bool IsThisTheInstance()

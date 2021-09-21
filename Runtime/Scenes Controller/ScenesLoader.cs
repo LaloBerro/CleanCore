@@ -33,9 +33,11 @@ namespace CleanCore.Scenes
 
         private void Awake()
         {
+            PassTroughScenes();
+
             InitVariables();
 
-            _openScenes.Add(firstOpenSceneData.SceneData);
+            _openScenes.Add(firstOpenSceneData.SceneData);         
         }
 
         private void InitVariables()
