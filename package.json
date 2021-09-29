@@ -1,9 +1,9 @@
 {
   "name": "com.lalo.cleancore",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "displayName": "Clean Core",
   "description": "All that you need for custimeze unity to the next level!",
-  "unity": "2019.1",
+  "unity": "2020.3",
   "unityRelease": "0b5",
   "documentationUrl": "https://example.com/",
   "changelogUrl": "https://example.com/changelog.html",
