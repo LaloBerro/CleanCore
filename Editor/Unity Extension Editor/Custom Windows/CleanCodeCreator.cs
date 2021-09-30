@@ -42,7 +42,7 @@ namespace CleanCore.EditorExtensions.Windows
 
         private async Task CreateAll()
         {         
-            string namespaceDefault = "Groobi.Levels." + _sceneName + "." + _folderName;
+            string namespaceDefault = "Project." + _sceneName + "." + _folderName;
             string namespaceEntity = namespaceDefault + ".Domain.Entities";
             string namespaceUseCase = namespaceDefault + ".Domain.UseCase";
             string namespaceDPresenters = namespaceDefault + ".Domain.Presenters";
