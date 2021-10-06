@@ -4,7 +4,8 @@ using System;
 
 namespace CleanCore.Patterns.Creational.FactoryMethod
 {
-	public abstract class ProductsConfiguration<K> : MonoBehaviour
+    [Serializable]
+    public class ProductsConfiguration<K>
 	{
         [SerializeField] private GameObject[] products;
         private Dictionary<K, IProduct<K>> idToProducts;
@@ -18,7 +19,7 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         private void ValidateConfiguration()
         {
-            if (null == products || products.Length <= 0) throw new Exception("No products in this factory: " + gameObject.name);
+            if (null == products || products.Length <= 0) throw new Exception("No products in this configuration: ");
         }
 
         public bool HaveProducts()

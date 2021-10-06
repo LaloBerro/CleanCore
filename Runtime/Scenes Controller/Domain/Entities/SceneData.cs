@@ -1,7 +1,4 @@
-﻿using System.Security.Cryptography;
-using System.Net;
-using System.Runtime.InteropServices;
-using UnityEngine;
+﻿using UnityEngine;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -9,7 +6,6 @@ using UnityEditor;
 
 namespace CleanCore.Scenes
 {
-
     [System.Serializable]
     public class SceneData
     {
