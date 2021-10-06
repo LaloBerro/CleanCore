@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnityEditor
 {
-    [CustomPropertyDrawer(typeof(SceneData))]
+    /*[CustomPropertyDrawer(typeof(SceneData))]
     public class SceneData_Editor : PropertyDrawer
     {
         private SceneAsset newScene = null;
@@ -167,5 +167,5 @@ namespace UnityEditor
 
             EditorGUI.DrawRect(rect, new Color(0.5f, 0.5f, 0.5f, 1));
         }
-    }
+    }*/
 }
