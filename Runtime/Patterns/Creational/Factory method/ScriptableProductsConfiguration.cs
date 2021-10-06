@@ -6,5 +6,7 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
     {
         [Header("Config")]
         [SerializeField] private ProductsConfiguration<Key> productsConfiguration;
+
+        public ProductsConfiguration<Key> ProductsConfiguration { get => productsConfiguration; }
     }
 }
