@@ -5,10 +5,10 @@ using System;
 namespace CleanCore.Patterns.Creational.FactoryMethod
 {
     [Serializable]
-    public class ProductsConfiguration<K>
+    public class ProductsConfiguration<Key, Product> where Product : IProduct<Key>
 	{
-        [SerializeField] private GameObject[] products;
-        private Dictionary<K, IProduct<K>> idToProducts;
+        [SerializeField] private Product[] products;
+        private Dictionary<Key, Product> idToProducts;
 
         public void Init()
         {
@@ -32,7 +32,7 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         private void LoadProducts()
         {
-            idToProducts = new Dictionary<K, IProduct<K>>(products.Length);
+            idToProducts = new Dictionary<Key, Product>(products.Length);
             foreach (var productObj in products)
             {
                 AddProductToTheConfiguration(productObj);
@@ -41,21 +41,21 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         #region Add product
 
-        private void AddProductToTheConfiguration(GameObject productObj)
+        private void AddProductToTheConfiguration(Product product)
         {
-            IProduct<K> product = productObj.GetComponent<IProduct<K>>();
+            //Product product = (Product)productObj.GetInterface<IProduct<Key>>();
 
             ValidateProduct(product);
 
             AddProductIfDontHaveIt(product);
         }
 
-        private void ValidateProduct(IProduct<K> product)
+        private void ValidateProduct(Product product)
         {
             if (null == product) throw new Exception("No exist product in this gameobject");
         }
 
-        private void AddProductIfDontHaveIt(IProduct<K> product)
+        private void AddProductIfDontHaveIt(Product product)
         {
             if (idToProducts.ContainsKey(product.Id))
                 Debug.LogWarning("This configuration is already contains: " + product.Id);
@@ -65,12 +65,12 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         #endregion
 
-        public IProduct<K> GetProductById(K id)
+        public Product GetProductById(Key id)
         {
             if (!idToProducts.TryGetValue(id, out var product))
             {
                 Debug.LogWarning($"Product with id {id} does not exit");
-                return null;
+                return default;
             }
             return product;
         }
