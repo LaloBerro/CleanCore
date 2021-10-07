@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 namespace CleanCore.Patterns.Creational.FactoryMethod
 {
-    [Serializable]
+    [System.Serializable]
     public class ProductsConfiguration<Key, Product> where Product : IProduct<Key>
 	{
         [SerializeField] private Product[] products;
@@ -19,7 +18,7 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         private void ValidateConfiguration()
         {
-            if (null == products || products.Length <= 0) throw new Exception("No products in this configuration: ");
+            if (null == products || products.Length <= 0) throw new System.Exception("No products in this configuration: ");
         }
 
         public bool HaveProducts()
@@ -52,7 +51,7 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         private void ValidateProduct(Product product)
         {
-            if (null == product) throw new Exception("No exist product in this gameobject");
+            if (null == product) throw new System.Exception("No exist product in this gameobject");
         }
 
         private void AddProductIfDontHaveIt(Product product)
