@@ -22,7 +22,7 @@ namespace CleanCore.EditorExtensions.CustomTools
             if (Request.IsCompleted)
             {
                 if (Request.Status == StatusCode.Success)
-                    Debug.Log("Updated: " + Request.Result.packageId + "to version: " + Request.Result.version);
+                    Debug.Log("Updated: " + Request.Result.name + " to version: " + Request.Result.version);
                 else if (Request.Status >= StatusCode.Failure)
                     Debug.Log(Request.Error.message);
 
