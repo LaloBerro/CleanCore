@@ -5,9 +5,9 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 {
     [System.Serializable]
     public class ProductsConfiguration<Key, Product> where Product : IProduct<Key>
-	{
-        [SerializeField] private Product[] products;
-        private Dictionary<Key, Product> idToProducts;
+    {
+        [SerializeField] private Product[] _products;
+        private Dictionary<Key, Product> _idToProducts;
 
         public void Init()
         {
@@ -18,12 +18,12 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         private void ValidateConfiguration()
         {
-            if (null == products || products.Length <= 0) throw new System.Exception("No products in this configuration: ");
+            if (null == _products || _products.Length <= 0) throw new System.Exception("No products in this configuration: ");
         }
 
         public bool HaveProducts()
         {
-            if (null == products || products.Length <= 0) return false;
+            if (null == _products || _products.Length <= 0) return false;
 
 
             return true;
@@ -31,8 +31,8 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         private void LoadProducts()
         {
-            idToProducts = new Dictionary<Key, Product>(products.Length);
-            foreach (var productObj in products)
+            _idToProducts = new Dictionary<Key, Product>(_products.Length);
+            foreach (var productObj in _products)
             {
                 AddProductToTheConfiguration(productObj);
             }
@@ -56,22 +56,27 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         private void AddProductIfDontHaveIt(Product product)
         {
-            if (idToProducts.ContainsKey(product.Id))
+            if (_idToProducts.ContainsKey(product.Id))
                 Debug.LogWarning("This configuration is already contains: " + product.Id);
             else
-                idToProducts.Add(product.Id, product);
+                _idToProducts.Add(product.Id, product);
         }
 
         #endregion
 
         public Product GetProductById(Key id)
         {
-            if (!idToProducts.TryGetValue(id, out var product))
+            if (!_idToProducts.TryGetValue(id, out var product))
             {
                 Debug.LogWarning($"Product with id {id} does not exit");
                 return default;
             }
             return product;
         }
+
+        public Product[] GetAllProducts()
+        {
+            return _products;
+        } 
     }
 }

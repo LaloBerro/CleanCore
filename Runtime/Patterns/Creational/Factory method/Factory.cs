@@ -8,18 +8,18 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 	/// <typeparam name="Key"></typeparam>
 	public class Factory<Key, Product> where Product : IProduct<Key>
 	{
-		private readonly ProductsConfiguration<Key, Product> productConfiguration;
+		private readonly ProductsConfiguration<Key, Product> _productConfiguration;
 
 		public Factory(ProductsConfiguration<Key, Product> productConfiguration)
 		{
-			this.productConfiguration = productConfiguration;
+			this._productConfiguration = productConfiguration;
 
 			productConfiguration.Init();
 		}
 
 		public Product Create(Key id)
 		{
-			var product = productConfiguration.GetProductById(id);
+			var product = _productConfiguration.GetProductById(id);
 
 			return product;
 		}
