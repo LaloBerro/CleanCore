@@ -96,6 +96,15 @@ namespace CleanCore.Extensions
             return objects;
         }
 
+        public static Transform Clear(this Transform transform)
+        {
+            foreach (Transform child in transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            return transform;
+        }
+
         #endregion
 
         #region Distance Comparations
