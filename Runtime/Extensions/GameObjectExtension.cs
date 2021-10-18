@@ -69,7 +69,12 @@ namespace CleanCore.Extensions
                 return null;
             }
 
-            return selfObj.GetComponents<Component>().OfType<T>().FirstOrDefault();
+            T interfaceTypeComponent = selfObj.GetComponents<Component>().OfType<T>().FirstOrDefault();
+
+            if (null == interfaceTypeComponent)
+                throw new System.Exception("There is not a interface of type " + typeof(T).Name + " in gameobject " + selfObj.name);
+
+            return interfaceTypeComponent;
         }
 
         public static IEnumerable<T> GetInterfaces<T>(this GameObject inObj) where T : class

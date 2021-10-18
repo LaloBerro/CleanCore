@@ -5,11 +5,40 @@ namespace CleanCore.Extensions
 {
 	public static class StringExtension
 	{
-		public static string SetColorToDebug(this string text, Color color)
+        /// <summary>
+        /// Add color rich text to a string
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="color"></param>
+        /// <returns></returns>
+		public static string SetColorOfString(this string text, Color color)
         {
 			string output = string.Format("<color={0}>{1}</color>", color.ToHex(), text);
 
 			return output;
+        }
+
+        /// <summary>
+        /// Add color rich text to a string
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public static string SetColorOfString(this string text, string color)
+        {
+            string output = string.Format("<color={0}>{1}</color>", color, text);
+
+            return output;
+        }
+
+        /// <summary>
+        /// Add bold rich text to a string
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string MakeBold(this string text)
+        {
+            return "<b> " + text + "</b> ";
         }
 
         /// <summary>
@@ -76,5 +105,27 @@ namespace CleanCore.Extensions
 
             return distance[sourceWordCount, targetWordCount];
         }
+
+        /// <summary>
+        /// Convert a string to int
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static int StringToInt(this string text)
+        {
+            return int.Parse(text);
+        }
+
+        ///// <summary>
+        ///// Format a json to readable text
+        ///// </summary>
+        ///// <param name="text"></param>
+        ///// <returns></returns>
+        //public static string FormatJson(this string text)
+        //{
+        //    string jsonFormatted = JValue.Parse(text).ToString(Formatting.Indented);
+
+        //    return jsonFormatted;
+        //}
     }
 }

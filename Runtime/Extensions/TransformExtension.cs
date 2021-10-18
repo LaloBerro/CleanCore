@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CleanCore.Extensions
 {
@@ -72,28 +71,6 @@ namespace CleanCore.Extensions
                 axis.z == 0 ? transform.rotation.eulerAngles.z : LookAtRotation.eulerAngles.z);
 
             transform.rotation = LookAtRotationOnly_Y;
-        }
-
-        /// <summary>
-        /// A method for finding all objects of a certain type that are within a specific distance from a Transform
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="transform"></param>
-        /// <param name="proximity"></param>
-        /// <returns></returns>
-        public static List<T> FindObjectsWithinProximity<T>(this Transform transform, float proximity) where T : MonoBehaviour
-        {
-            List<T> objects = new List<T>();
-
-            T[] foundObjects = GameObject.FindObjectsOfType<T>();
-            for (int x = 0; x < foundObjects.Length; x++)
-            {
-                T obj = foundObjects[x];
-                if ((obj.transform.position - transform.position).magnitude <= proximity)
-                    objects.Add(obj);
-            }
-
-            return objects;
         }
 
         public static Transform Clear(this Transform transform)
