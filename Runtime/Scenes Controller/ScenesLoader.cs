@@ -37,7 +37,7 @@ namespace CleanCore.Scenes
 
             InitVariables();
 
-            _openScenes.Add(firstOpenSceneData.SceneData);         
+            _openScenes.Add(firstOpenSceneData.SceneData);
         }
 
         private void InitVariables()

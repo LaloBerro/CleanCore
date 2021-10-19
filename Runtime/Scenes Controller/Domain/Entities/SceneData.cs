@@ -11,6 +11,7 @@ namespace CleanCore.Scenes
     {
 
 #if UNITY_EDITOR
+        [System.NonSerialized]
         public SceneAsset sceneAsset;
 #endif
 
