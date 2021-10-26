@@ -1,3 +1,16 @@
 {
-	"name": "CleanCore.Runtime.UtilConsts"
+    "name": "CleanCore.Runtime.UtilConsts",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ebe80b196d359434890baf4512d14a48"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
