@@ -1,4 +1,4 @@
-﻿namespace CleanCore.UtilsConst
+﻿namespace CleanCore.UtilConsts
 {
     public class HexColors
     {

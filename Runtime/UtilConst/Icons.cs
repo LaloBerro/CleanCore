@@ -1,6 +1,6 @@
 ﻿using CleanCore.Extensions;
 
-namespace CleanCore.UtilsConst
+namespace CleanCore.UtilConsts
 {
     public class Icons
     {
