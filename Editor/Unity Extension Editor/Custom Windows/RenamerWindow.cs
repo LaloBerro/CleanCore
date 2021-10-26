@@ -52,7 +52,7 @@ namespace CleanCore.EditorExtensions.Windows
                 SaveName();
 
             Event e = Event.current;
-            if (EventType.KeyDown == e.type && KeyCode.KeypadEnter == e.keyCode)
+            if (EventType.KeyDown == e.type && KeyCode.Return == e.keyCode)
             {
                 SaveName();
             }
