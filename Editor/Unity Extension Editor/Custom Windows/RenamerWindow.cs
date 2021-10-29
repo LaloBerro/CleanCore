@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.ShortcutManagement;
+using static UnityEditor.PlayerSettings;
 
 namespace CleanCore.EditorExtensions.Windows
 {
@@ -32,6 +33,20 @@ namespace CleanCore.EditorExtensions.Windows
             foreach (var gameObject in selectedGameobjects)
             {
                 gameObject.name = CorrectName(gameObject.name);
+            }
+        }
+
+        [Shortcut("RenameWithTheScriptName", null, KeyCode.E, ShortcutModifiers.Action)]
+        public static void RenameWithTheScriptName()
+        {
+            GameObject[] selectedGameobjects = Selection.gameObjects;
+
+            foreach (var gameObject in selectedGameobjects)
+            {
+                MonoBehaviour monoBehaviour = gameObject.GetComponent<MonoBehaviour>();
+
+                if (null != monoBehaviour)
+                    gameObject.name = monoBehaviour.GetType().Name;
             }
         }
 
