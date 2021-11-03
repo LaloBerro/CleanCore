@@ -77,6 +77,11 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
         public Product[] GetAllProducts()
         {
             return _products;
-        } 
+        }
+
+        public bool ContainsProduct(Key id)
+        {
+            return _idToProducts.ContainsKey(id);
+        }
     }
 }

@@ -13,4 +13,9 @@ public static class Console
 
         Debug.Log(Icons.Format(icon, iconColor) + " " + message);
     }
+
+    /*public static void Log(string message, string icon = Icons.PointerRightSmall, string iconColor = "#C1C1C1")
+    {
+        Debug.Log(Icons.Format(icon, iconColor) + " " + message);
+    }*/
 }
