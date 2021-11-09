@@ -6,6 +6,7 @@ namespace CleanCore.UtilConsts
     {
         public const string Plus = "＋";
         public const string RightArrow = "→";
+        public const string LeftArrow = "←";
         public const string Check = "✓";
         public const string Cross = "╳";
         public const string Point = "◉";
