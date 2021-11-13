@@ -548,6 +548,13 @@ namespace CleanCore.Extensions
             return Vector3.Cross(direction, Vector3.up);
         }
 
+        public static float InverseLerp(this Vector3 init, Vector3 final, Vector3 value)
+        {
+            Vector3 AB = final - init;
+            Vector3 AV = value - init;
+            return Vector3.Dot(AV, AB) / Vector3.Dot(AB, AB);
+        }
+
         #endregion
     }
 }
