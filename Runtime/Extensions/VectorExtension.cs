@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace CleanCore.Extensions
 {
@@ -553,6 +554,11 @@ namespace CleanCore.Extensions
             Vector3 AB = final - init;
             Vector3 AV = value - init;
             return Vector3.Dot(AV, AB) / Vector3.Dot(AB, AB);
+        }
+
+        public static Vector3 ToPositive(this Vector3 vector)
+        {
+            return new Vector3(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
         }
 
         #endregion
