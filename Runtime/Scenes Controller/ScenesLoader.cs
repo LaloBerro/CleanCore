@@ -1,10 +1,12 @@
 ﻿using System;
-using CleanCore.Patterns.Command;
-using CleanCore.Patterns;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using CleanCore.Extensions;
+using CleanCore.Patterns;
+using CleanCore.Patterns.Command;
+using CleanCore.UtilConsts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Threading.Tasks;
 
 namespace CleanCore.Scenes
 {
@@ -173,7 +175,7 @@ namespace CleanCore.Scenes
 
         private void OnAllOperationsDone()
         {
-            Debug.Log("All scene are loaded");
+            Debug.Log(Icons.Format(Icons.Check, HexColors.Green) + "All scene are loaded".SetColorOfString(HexColors.Green).MakeBold());
         }
 
         #endregion
