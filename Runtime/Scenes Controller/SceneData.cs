@@ -18,6 +18,8 @@ namespace CleanCore.Scenes
         {
             SceneData[] scenes = new SceneData[scenesData.Length + 1];
 
+            scenes[scenesData.Length] = this;
+
             for (int i = 0; i < scenesData.Length; i++)
             {
                 scenes[i] = scenesData[i].SceneData;
