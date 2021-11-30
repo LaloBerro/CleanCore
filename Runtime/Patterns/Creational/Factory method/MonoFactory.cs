@@ -9,6 +9,11 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
 
         private Factory<keyType, ProductType> _factory;
 
+        private void Awake()
+        {
+            _factory = new Factory<keyType, ProductType>(_productsConfiguration);
+        }
+
         public abstract ProductType Create(keyType key);
     }
 }
