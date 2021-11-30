@@ -14,6 +14,9 @@ namespace CleanCore.Patterns.Creational.FactoryMethod
             _factory = new Factory<keyType, ProductType>(_productsConfiguration);
         }
 
-        public abstract ProductType Create(keyType key);
+        public ProductType Create(keyType key)
+        {
+            return _factory.Create(key);
+        }
     }
 }
